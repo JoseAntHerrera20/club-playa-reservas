@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Club de Playa - Mapa de Reservas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    .legend {
+      background: white;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 18px;
+      color: #333;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.8;
+    }
+
+    /* Modal estilos */
+    #modalReservas {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      z-index: 1000;
+      min-width: 300px;
+      max-width: 90%;
+    }
+
+    /* Botón flotante reservas */
+    #btnReservas {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    /* Botón limpiar reservas */
+    #btnLimpiarReservas {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      background: #f44336;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    /* Contenedor filtros */
+    #filtros {
+      position: fixed;
+      top: 70px;
+      left: 20px;
+      z-index: 1000;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      font-size: 14px;
+    }
+
+    #filtros label {
+      margin-right: 5px;
+    }
+
+    #filtros select {
+      margin-right: 15px;
+      padding: 3px 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor de filtros -->
+  <div id="filtros">
+    <label for="filtroTipo">Tipo:</label>
+    <select id="filtroTipo">
+      <option value="todos">Todos</option>
+      <option value="palapa">Palapa</option>
+      <option value="camastro">Camastro</option>
+      <option value="cabaña">Cabaña</option>
+    </select>
+
+    <label for="filtroEstado">Estado:</label>
+    <select id="filtroEstado">
+      <option value="todos">Todos</option>
+      <option value="disponible">Disponible</option>
+      <option value="reservado">Reservado</option>
+      <option value="bloqueado">Bloqueado</option>
+    </select>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- Botón flotante para mostrar reservas -->
+  <button id="btnReservas">Mis reservas</button>
+
+  <!-- Botón para limpiar reservas -->
+  <button id="btnLimpiarReservas">Limpiar reservas</button>
+
+  <!-- Modal para mostrar reservas -->
+  <div id="modalReservas">
+    <h3>Mis Reservas</h3>
+    <ul id="listaReservas"></ul>
+    <button onclick="cerrarModal()">Cerrar</button>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Tu código JS -->
+  <script src="main.js"></script>
+</body>
+</html>

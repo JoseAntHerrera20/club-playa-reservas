@@ -1,0 +1,164 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Palapa 1",
+        "tipo": "palapa",
+        "estado": {
+            "AM": "disponible",
+            "PM": "disponible",
+            "Completo": "disponible"
+        },
+        "precio": 500
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0686, 20.6280],
+            [-87.0684, 20.6280],
+            [-87.0684, 20.6278],
+            [-87.0686, 20.6278],
+            [-87.0686, 20.6280]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Palapa 2",
+        "tipo": "palapa",
+        "estado": "reservado",
+        "precio": 500
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0683, 20.6280],
+            [-87.0681, 20.6280],
+            [-87.0681, 20.6278],
+            [-87.0683, 20.6278],
+            [-87.0683, 20.6280]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Palapa 3",
+        "tipo": "palapa",
+        "estado": "bloqueado",
+        "precio": 500
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0680, 20.6280],
+            [-87.0678, 20.6280],
+            [-87.0678, 20.6278],
+            [-87.0680, 20.6278],
+            [-87.0680, 20.6280]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Camastro 1",
+        "tipo": "camastro",
+        "estado": {
+            "AM": "disponible",
+            "PM": "disponible",
+            "Completo": "disponible"
+        },
+        "precio": 250
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0677, 20.6279],
+            [-87.0675, 20.6279],
+            [-87.0675, 20.6277],
+            [-87.0677, 20.6277],
+            [-87.0677, 20.6279]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Camastro 2",
+        "tipo": "camastro",
+        "estado": "reservado",
+        "precio": 250
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0674, 20.6277],
+            [-87.0672, 20.6277],
+            [-87.0672, 20.6275],
+            [-87.0674, 20.6275],
+            [-87.0674, 20.6277]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Camastro 3",
+        "tipo": "camastro",
+        "estado": "bloqueado",
+        "precio": 250
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0671, 20.6277],
+            [-87.0669, 20.6277],
+            [-87.0669, 20.6275],
+            [-87.0671, 20.6275],
+            [-87.0671, 20.6277]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Cabaña 1",
+        "tipo": "cabaña",
+        "estado": {
+            "AM": "disponible",
+            "PM": "disponible",
+            "Completo": "disponible"
+        },
+        "precio": 1000
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.0668, 20.6279],
+            [-87.0666, 20.6279],
+            [-87.0666, 20.6277],
+            [-87.0668, 20.6277],
+            [-87.0668, 20.6279]
+          ]
+        ]
+      }
+    }
+  ]
+}
