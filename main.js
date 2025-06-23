@@ -106,7 +106,7 @@ function aplicarFiltros() {
 }
 
 // Cargar GeoJSON y pintar mapa
-fetch('map.geojson')
+fetch('http://localhost:3000/api/mapa')
   .then(res => res.json())
   .then(data => {
     const reservasGuardadas = obtenerReservasGuardadas();
