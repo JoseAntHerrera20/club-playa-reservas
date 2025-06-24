@@ -1,3 +1,6 @@
+// URL base del backend desplegado en Azure
+const BACKEND_URL = 'http://clubplaya-backend.azurewebsites.net';
+
 // Variables globales
 let map;
 let geojsonLayer;
@@ -50,7 +53,7 @@ function inicializarMapa() {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  fetch('http://localhost:3000/api/mapa')
+  fetch(`${BACKEND_URL}/api/mapa`)
     .then(res => res.json())
     .then(data => {
       // Aquí puedes adaptar el manejo de reservas guardadas si usas localStorage
@@ -145,7 +148,7 @@ function reservar(nombre, horario) {
     return;
   }
 
-  fetch('http://localhost:3000/api/reservas', {
+  fetch(`${BACKEND_URL}/api/reservas`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nombre, horario, usuario })
@@ -168,7 +171,7 @@ function reservar(nombre, horario) {
 // Recargar mapa para actualizar estados
 function recargarMapa() {
   if (!map) return;
-  fetch('http://localhost:3000/api/mapa')
+  fetch(`${BACKEND_URL}/api/mapa`)
     .then(res => res.json())
     .then(data => {
       geojsonLayer.clearLayers();
@@ -183,7 +186,7 @@ document.getElementById('btnReservas').addEventListener('click', () => {
   const lista = document.getElementById('listaReservas');
   lista.innerHTML = '';
 
-  fetch('http://localhost:3000/api/reservas')
+  fetch(`${BACKEND_URL}/api/reservas`)
     .then(res => res.json())
     .then(reservas => {
       if (!reservas || reservas.length === 0) {
@@ -203,7 +206,7 @@ document.getElementById('btnReservas').addEventListener('click', () => {
 
         btnCancelar.onclick = () => {
           if (!confirm(`¿Cancelar la reserva de ${r.nombre} (${r.horario})?`)) return;
-          fetch(`http://localhost:3000/api/reservas/${encodeURIComponent(r.nombre)}/${encodeURIComponent(r.horario)}`, {
+          fetch(`${BACKEND_URL}/api/reservas/${encodeURIComponent(r.nombre)}/${encodeURIComponent(r.horario)}`, {
             method: 'DELETE'
           })
           .then(res => {
@@ -242,11 +245,11 @@ function cerrarModal() {
 document.getElementById('btnLimpiarReservas').addEventListener('click', () => {
   if (!confirm('¿Cancelar todas tus reservas?')) return;
 
-  fetch('http://localhost:3000/api/reservas')
+  fetch(`${BACKEND_URL}/api/reservas`)
     .then(res => res.json())
     .then(reservas => {
       const promesas = reservas.map(r =>
-        fetch(`http://localhost:3000/api/reservas/${encodeURIComponent(r.nombre)}/${encodeURIComponent(r.horario)}`, {
+        fetch(`${BACKEND_URL}/api/reservas/${encodeURIComponent(r.nombre)}/${encodeURIComponent(r.horario)}`, {
           method: 'DELETE'
         })
       );
@@ -272,7 +275,7 @@ function registrarse() {
     return;
   }
 
-  fetch('http://localhost:3000/api/register', {
+  fetch(`${BACKEND_URL}/api/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
@@ -297,7 +300,7 @@ function iniciarSesion() {
     return;
   }
 
-  fetch('http://localhost:3000/api/login', {
+  fetch(`${BACKEND_URL}/api/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
