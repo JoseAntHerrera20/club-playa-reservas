@@ -1,5 +1,5 @@
 // URL base del backend desplegado en Azure
-const BACKEND_URL = 'https://clubplaya-backend.azurewebsites.net';
+const BACKEND_URL = 'https://clubplaya-backend-hyarhmbfgbhfaze9.centralus-01.azurewebsites.net';
 
 // Variables globales
 let map;
